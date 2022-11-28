@@ -1,0 +1,133 @@
+body {
+    margin: 0;
+    background: #3CA55C;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #B5AC49, #3CA55C);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #B5AC49, #3CA55C);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Form & Input */
+form {
+    margin: 50px auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+    text-align: center;
+    background-color: #dad7cd;
+    border-radius: 30px;
+}
+
+p>input {
+    font-size: large;
+    width: 50px;
+}
+
+.input {
+    display: inline-block;
+    width: 200px;
+    padding: 20px;
+}
+
+/* Slider */
+
+.slider {
+    width: 50%;
+    margin: 0px auto;
+}
+
+#submit {
+    background-color: #588157;
+    border: none;
+    color: white;
+    padding: 10px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+#submit:hover {
+    transform: scale(1.1);
+}
+
+/* Tabs */
+#tabs {
+    margin: auto;
+    height: 500px;
+    overflow: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 50%;
+}
+
+#close-btn {
+    cursor: pointer;
+    display: inline;
+    font-size: larger;
+    background-color: red;
+    border-radius: 20%;
+}
+
+/* Tab List */
+#tab-list {
+    margin: 50px auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+    text-align: center;
+    background-color: #dad7cd;
+    border-radius: 30px;
+}
+
+.delete-btn {
+    background-color: rgb(236, 73, 73);
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: large;
+    border: none;
+    border-radius: 20px;
+}
+
+.delete-btn:hover {
+    transition: .3s ease;
+    background-color: red;
+    transform: scale(1.05);
+}
+
+/* Table */
+
+table {
+    border-collapse: collapse;
+    margin: auto;
+    width: 100%;
+    border: 3px solid green;
+    padding: 10px auto;
+    height: 100%;
+}
+
+td {
+    border: 1px solid black;
+    padding: 3px;
+    text-align: center;
+    background-color: white;
+}
+
+.header {
+    background: rgb(152, 208, 188);
+}
+
+@media screen and (max-width: 500px) {
+    form {
+        width: 80%;
+    }
+
+    #table-container {
+        width: 90%;
+    }
+}

@@ -1,0 +1,66 @@
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiplication Table</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- Poppins Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&family=Roboto:ital,wght@1,100&display=swap"
+        rel="stylesheet">
+    <!-- JQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.1.js"
+        integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    <!-- JQuery Validation -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+    <script src="script.js"></script>
+    <!-- JQueryUI -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+</head>
+
+<body>
+    <!-- onsubmit="generateTable()" -->
+    <form id="signupForm" autocomplete="off" >
+        <fieldset>
+            <legend>Multiplication Table</legend>
+            <p>
+                <label for="min_col">Minimum Column Value</label>
+                <input id="min_col" name="min_col" type="text"></input>
+                <div id="min_col_slider" class="slider"></div>
+            </p>
+            <p>
+                <label for="max_col">Maximum Column Value</label>
+                <input id="max_col" name="max_col" type="text"></input>
+                <div id="max_col_slider" class="slider"></div>
+            </p>
+            <p>
+                <label for="min_row">Minimum Row Value</label>
+                <input id="min_row" name="min_row" type="text"></input>
+            <div id="min_row_slider" class="slider"></div>
+            </p>
+            <p>
+                <label for="max_row">Maximum Row Value</label>
+                <input id="max_row" name="max_row" type="text"></input>
+            <div id="max_row_slider" class="slider"></div>
+            </p>
+            <input class="submit" type="submit" value="submit">
+        </fieldset>
+    </form>
+    <div id="tabs">
+        <ul id="tab-titles">
+            <!-- Contains the li's of each tab -->
+        </ul>
+        <!-- Will contain divs with each respective table -->
+    </div>
+    <div id="tab-list">
+        <button class="delete-btn" onclick="deleteSelectedTabs()">Delete Selected</button>
+    </div>
+</body>
+
+</html>
