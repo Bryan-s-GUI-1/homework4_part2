@@ -49,30 +49,30 @@ $().ready(function () {
     // jQuery validation code
     $("#signupForm").validate({
         // Rules
+        /*
+            required: Means the input is required for the form to be valid
+            range: Only allows non-decimal numbers in the range (handles non-numbers such as strings, char, etc)
+        */
         rules: {
             min_col: {
                 required: true,
                 number: true,
-                min: -50,
-                max: 50,
+                range: [-50, 50],
             },
             max_col: {
                 required: true,
                 number: true,
-                min: -50,
-                max: 50,
+                range: [-50, 50],
             },
             min_row: {
                 required: true,
                 number: true,
-                min: -50,
-                max: 50,
+                range: [-50, 50],
             },
             max_row: {
                 required: true,
                 number: true,
-                min: -50,
-                max: 50,
+                range: [-50, 50],
             }
         },
         // Messages
