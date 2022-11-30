@@ -18,8 +18,9 @@ $().ready(function () {
             max: 50,
             slide: function (event, ui) {
                 $("#min_col").val(ui.value);
-                updateTable();
-                ;
+                if (tab_counter > 1) {
+                    updateTable();
+                }
             }
         });
         $("#max_col_slider").slider({
@@ -28,7 +29,9 @@ $().ready(function () {
             max: 50,
             slide: function (event, ui) {
                 $("#max_col").val(ui.value);
-                updateTable();
+                if (tab_counter > 1) {
+                    updateTable();
+                }
             }
         });
         $("#min_row_slider").slider({
@@ -37,7 +40,9 @@ $().ready(function () {
             max: 50,
             slide: function (event, ui) {
                 $("#min_row").val(ui.value);
-                updateTable();
+                if (tab_counter > 1) {
+                    updateTable();
+                }
             }
         });
         $("#max_row_slider").slider({
@@ -46,8 +51,9 @@ $().ready(function () {
             max: 50,
             slide: function (event, ui) {
                 $("#max_row").val(ui.value);
-                updateTable();
-
+                if (tab_counter > 1) {
+                    updateTable();
+                }
             }
         });
     })
