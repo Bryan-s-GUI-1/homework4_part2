@@ -18,6 +18,8 @@ $().ready(function () {
             max: 50,
             slide: function (event, ui) {
                 $("#min_col").val(ui.value);
+                updateTable();
+                ;
             }
         });
         $("#max_col_slider").slider({
@@ -26,6 +28,7 @@ $().ready(function () {
             max: 50,
             slide: function (event, ui) {
                 $("#max_col").val(ui.value);
+                updateTable();
             }
         });
         $("#min_row_slider").slider({
@@ -34,6 +37,7 @@ $().ready(function () {
             max: 50,
             slide: function (event, ui) {
                 $("#min_row").val(ui.value);
+                updateTable();
             }
         });
         $("#max_row_slider").slider({
@@ -42,6 +46,8 @@ $().ready(function () {
             max: 50,
             slide: function (event, ui) {
                 $("#max_row").val(ui.value);
+                updateTable();
+
             }
         });
     })
@@ -109,7 +115,7 @@ $().ready(function () {
     $('#signupForm').submit(function (event) {
         event.preventDefault();
         if ($('#signupForm').valid()) {
-            generateTable();
+            createTab();
         }
     });
 });
@@ -141,15 +147,9 @@ function setArray(min_count, max_count) {
 // Counter variable of number of tabs
 let tab_counter = 1;
 
-function generateTable() {
-    // Creation of table element
-    const table = document.createElement(`table-${tab_counter}`);
+function generateTable(curr_counter, min_col_count, max_col_count, min_row_count, max_row_count) {
 
-    // Stores input value's into variables
-    const min_col_count = Number(document.getElementById("min_col").value);
-    const max_col_count = Number(document.getElementById("max_col").value);
-    const min_row_count = Number(document.getElementById("min_row").value);
-    const max_row_count = Number(document.getElementById("max_row").value);
+    const table = document.createElement(`table-${curr_counter}`);
 
     // Initializes col and row arrays
     const col_arr = setArray(min_col_count, max_col_count);
@@ -179,6 +179,19 @@ function generateTable() {
         // Add the row to the HTML
         table.appendChild(row);
     }
+    return table;
+}
+
+function createTab() {
+    // Creation of table element
+
+    // Stores input value's into variables
+    const min_col_count = Number(document.getElementById("min_col").value);
+    const max_col_count = Number(document.getElementById("max_col").value);
+    const min_row_count = Number(document.getElementById("min_row").value);
+    const max_row_count = Number(document.getElementById("max_row").value);
+
+    const table = generateTable(tab_counter, min_col_count, max_col_count, min_row_count, max_row_count);
 
     // Adds a new tab label (an <li> nested with a <a> per the spec)
     $("#tab-titles").append(
@@ -200,13 +213,40 @@ function generateTable() {
     `)
     // Adds a new div section to contain the body of the tab (in our case the table)
     $("#tab-titles").after(`<div id="tab-${tab_counter}"></div>`);
-    
+
     // Appends table to current tab
     $(`#tab-${tab_counter}`).append(table);
     // Refresh tabs (updates tabs)
     $("#tabs").tabs("refresh");
     // Increments tab-counter
     tab_counter++;
+
+    // Prevents reload on submit
+    event.preventDefault();
+}
+
+function updateTable() {
+    // Checks to see if table already exists, if it does remove it via DOM
+    if (document.querySelector(`table-${tab_counter - 1}`)) {
+        $(`table-${tab_counter - 1}`).remove();
+    }
+
+    // Stores input value's into variables
+    const min_col_count = Number(document.getElementById("min_col").value);
+    const max_col_count = Number(document.getElementById("max_col").value);
+    const min_row_count = Number(document.getElementById("min_row").value);
+    const max_row_count = Number(document.getElementById("max_row").value);
+
+    const table = generateTable(tab_counter - 1, min_col_count, max_col_count, min_row_count, max_row_count);
+
+
+    // Appends table to prev tab
+    $(`#tab-${tab_counter - 1}`).append(table);
+    console.log(`#tab-${tab_counter}`);
+
+    // Refresh tabs (updates tabs)
+    $("#tabs").tabs("refresh");
+    // Increments tab-counter
 
     // Prevents reload on submit
     event.preventDefault();
